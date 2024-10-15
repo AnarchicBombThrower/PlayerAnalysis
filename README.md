@@ -1,6 +1,6 @@
 This project is a website that displays statistics associated with games. Currently it supports [Steam](https://store.steampowered.com/) and [Twitch](https://www.twitch.tv/) displaying Playercount and Viewer/Streamcount respectively for the games if avaliable. It allows you to search for games to retrieve statistics for using the [IGDB](https://www.igdb.com/) API search function.
 
-#Frontend
+# Frontend
 Made with React, the project is broken down into a few main components which I will detail below.
 
 **Header**
