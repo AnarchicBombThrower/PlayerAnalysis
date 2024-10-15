@@ -1,0 +1,21 @@
+div.gameFlavouredButton {
+    color: burlywood;
+    align-self: center;
+    width: 285px;
+    height: 115px;
+    padding: 10px;
+    margin: 10px;
+    background-color:rgb(17, 17, 22);
+}
+
+button.selectGame {
+    vertical-align: top;
+    text-align: left;
+    width: 50px;
+    height: 110px;
+}
+
+h6.gameName {
+    position: relative;
+    bottom: 35px; left: 60px;
+}

@@ -1,0 +1,14 @@
+div.gameStatsBack {
+    position: relative;
+    width: 250px;
+    height: fit-content;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color:rgb(17, 17, 22);
+}
+
+img.platformImage {
+    position: absolute;
+    top: 5%; right: 5%;
+}

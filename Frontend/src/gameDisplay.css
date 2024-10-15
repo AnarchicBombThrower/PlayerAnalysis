@@ -1,0 +1,20 @@
+div.gameDisplayBack {
+    position: relative;
+    color: burlywood;
+    align-self: center;
+    width: 250px;
+    height: 125px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color:rgb(17, 17, 22);
+}
+
+img.gameHeader {
+    position: absolute;
+    bottom: 5%; left: 5%;
+}
+
+* {
+    font-family: system-ui;
+}
