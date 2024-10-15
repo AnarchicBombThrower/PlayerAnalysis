@@ -17,3 +17,13 @@ Displays the game name thumbnail and then the information retrieved from the bac
 
 **GameStatsDisplay**
 Takes a name of a platform, and an icon and then a list of fields with values to display (e.g playercount). It simply then lists them in a html unordered list.
+
+# Backend
+Built in Go using the Gin framework
+
+Endpoints - <br />
+**/getGames/:search**
+Makes a request to the IGDB for games with the search function using the search parameter. It also makes a request to the games database to retreive each of the covers associated withe game ID of the games returned from the search. All of this data is sent back in one JSON.
+
+**/getPlayerAnalysis/:id**
+Makes a request to the IGDB for the websites associated with this game specifically filtering for twitch and steam (the two we are interested in). If the game is on twitch we make a request to the twich API first to retrieve the twich ID of the game (using the IGDB ID) and then get the streams of this game and then from that find the overall viewer count and number of streams. In the case of steam, we hav to use the website url to get the game ID and then use that to make a request to the steam API to get player count. Both of these are sent back in one JSON.
