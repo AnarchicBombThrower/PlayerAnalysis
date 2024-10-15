@@ -5,7 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 
@@ -74,8 +76,10 @@ type queryParameter struct {
 const gamesDatabaseAPIGames string = "https://api.igdb.com/v4/games"
 const gamesDatabaseAPICovers string = "https://api.igdb.com/v4/covers"
 const gameDatabaseAPIWebsites string = "https://api.igdb.com/v4/websites"
-const ourClientID string = "n092twgjuyvozrvzrtu3r7fwd0etmh"
-const ourAuthorization string = "Bearer irmkybj1r349mha5oqv1tn1xvtdm8u"
+
+var ourClientID string
+var ourAuthorization string
+
 const searchStatement string = "fields name, url; where category = 0 & (status = null | status = 4); search "
 const getGameCoversStatement string = "fields game, url; where "
 const gameEqualsStatement string = "game = "
@@ -106,6 +110,17 @@ func CORSMiddleware() gin.HandlerFunc {
 }
 
 func main() {
+	secrets, readSecretsError := os.ReadFile("secrets.txt")
+
+	if readSecretsError != nil {
+		log.Fatal(readSecretsError)
+	}
+
+	secretsStrings := strings.Split(string(secrets), ",")
+
+	ourClientID = secretsStrings[0]
+	ourAuthorization = secretsStrings[1]
+
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.SetTrustedProxies(nil)
